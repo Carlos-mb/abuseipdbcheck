@@ -1,10 +1,14 @@
 # abuseipdbcheck
 
-The script Automates the process of checking IP addresses against AbuseIPDB. It is designed to enhance a list of ips in the file "ips.txt" with information from AbuseIPDB, a database that tracks IP addresses associated with malicious activity. 
+In my role as a SOC Analyst, I frequently need to check a list of IP addresses to determine if they are malicious. I typically use abuseipdb.com, but manually checking each IP is a tedious and time-consuming task. Furthermore, I often found myself re-checking IPs that I had already investigated. To address this, I developed a Python script. Now, I can input a file containing IP addresses, and the script will create a database of IPs accessed from my network, sorted by potential risk. When I need to check new IPs, I simply add them to the file and run the script. It automatically removes duplicates, retrieves information for the newly added IPs, and re-sorts the entire list by risk.
+
+Now, my ips.txt file contains all previously checked IPs, and I can easily add new IPs and quickly identify the risky ones.
+
+The script automates the process of checking IP addresses against AbuseIPDB. It is designed to enhance a list of ips in the file "ips.txt" with information from AbuseIPDB, a database that tracks IP addresses associated with malicious activity. 
 
 **Key Features:**
 
-* Reads `ips.txt` line by line, skipping already processed entries.
+* Reads `ips.txt` line by line, skipping already processed entries. It expects one IP address per line.
 * Queries AbuseIPDB for unique IPs, preventing duplicates.
 * Efficiently resolves `abuseipdb.com` only once.
 * Updates `ips.txt` with AbuseIPDB data, preserving existing information.
